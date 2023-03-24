@@ -1,0 +1,321 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,21 March,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+Data Binding in React
+- It is the process of accessing data from source and binding to UI.
+- JavaScript and jQuery can handle data binding using DOM methods and jQuery functions.
+                var  username = "John";
+
+                <p> </p>
+
+                document.querySelector("p").innerHTML = username
+
+- React uses "Data Binding Expression" => {  }
+
+                 var  username = "John";
+
+                <p> {username} </p>
+
+- React requires various techniques to bind data which is complex.
+            a) Primitive Types
+                    number, string, boolean, null, undefined, symbol
+            b) Non Primitive types
+                    array, object, map
+
+Ex: Primitive Types
+
+react-shopng --> src--> Data-binding--> data-binding.jsx
+
+data-binding.jsx
+
+
+export function DataBinding()
+{
+     var id = 1;
+     var name = "Samsung TV";
+     var price = 45000.44;
+     var stock = true;
+     return(
+        <div className="container-fluid">
+            <h2>Product Details</h2>
+            <dl>
+                <dt>Product Id</dt>
+                <dd>{id}</dd>
+                <dt>Name</dt>
+                <dd>{name}</dd>
+                <dt>Price</dt>
+                <dd>{price}</dd>
+                <dt>Stock</dt>
+                <dd>{(stock==true)?"Available":"Out of Stock"}</dd>
+            </dl>
+        </div>
+     )
+}
+........................................................................................
+
+Ex: Primitive Types
+Ex: Object - JSON
+
+data-binding.jsx
+
+
+export function DataBinding()
+{
+     var product = {
+         "Id" : 1,
+         "Name": "Samsung LED TV",
+         "Price": 145000.44,
+         "Stock": true
+     }
+     return(
+        <div className="container-fluid">
+            <h2>Product Details</h2>
+            <dl>
+                <dt>Product Id</dt>
+                <dd>{product.Id}</dd>
+                <dt>Name</dt>
+                <dd>{product.Name}</dd>
+                <dt>Price</dt>
+                <dd>{product.Price}</dd>
+                <dt>Stock</dt>
+                <dd>{(product.Stock==true)?"Available":"Out of Stock"}</dd>
+            </dl>
+        </div>
+     )
+}
+
+Ex: Array
+- To present array and bind its data to UI you need various array methods
+            toString()
+            join()
+            slice()
+            map()
+            find()
+            filter() etc...
+Syntax:
+            collection.map((item)=> <p> { item } </p>)
+
+data-binding.jsx
+
+
+export function DataBinding()
+{
+     var categories = ["Electronics", "Footwear", "Fashion"];
+     return(
+        <div className="container-fluid">
+            <h2>Categories</h2>
+            <ul className="list-unstyled">
+                {
+                    categories.map((category)=>
+                     <li><a href="#">{category}</a></li>
+                    )
+                }
+            </ul>
+            <div>
+                {
+                    categories.map((category)=>
+                     <button className="btn btn-danger mb-2 d-block w-25">{category}</button>
+                    )
+                }
+            </div>
+            <ul className="list-unstyled">
+                {
+                    categories.map((category)=>
+                     <li><input type="checkbox"/> {category}</li>
+                    )
+                }
+            </ul>
+            <ol>
+                {
+                    categories.map((category)=>
+                        <li>{category}</li>
+                    )
+                }
+            </ol>
+            <select>
+                {
+                    categories.map((category)=>
+                      <option>{category}</option>
+                    )
+                }
+            </select>
+
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Categories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        categories.map((category)=>
+                          <tr>
+                            <td>{category}</td>
+                          </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </div>
+     )
+}
+
+
+Note: In virtual DOM if any element is repeating then every repeating element must have a unique identification key.
+                           
+                        collection.map((item)=> <li key={item}> {item} </li>)
+
+Ex:
+
+export function DataBinding()
+{
+     var categories = ["Electronics", "Footwear", "Fashion"];
+     return(
+        <div className="container-fluid">
+            <h2>Categories</h2>
+            <ul className="list-unstyled">
+                {
+                    categories.map((category)=>
+                     <li key={category}><a href="#">{category}</a></li>
+                    )
+                }
+            </ul>
+            <div>
+                {
+                    categories.map((category)=>
+                     <button key={category} className="btn btn-danger mb-2 d-block w-25">{category}</button>
+                    )
+                }
+            </div>
+            <ul className="list-unstyled">
+                {
+                    categories.map((category)=>
+                     <li key={category}><input type="checkbox"/> {category}</li>
+                    )
+                }
+            </ul>
+            <ol>
+                {
+                    categories.map((category)=>
+                        <li key={category}>{category}</li>
+                    )
+                }
+            </ol>
+            <select>
+                {
+                    categories.map((category)=>
+                      <option key={category}>{category}</option>
+                    )
+                }
+            </select>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Categories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        categories.map((category)=>
+                          <tr key={category}>
+                            <td>{category}</td>
+                          </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </div>
+     )
+}
+
+Ex: Array of Objects
+
+data-binding.jsx
+
+
+export function DataBinding()
+{
+     var data = [
+         {Name: "Samsung TV", Price: 45000.44, Stock: true},
+         {Name: "Nike Casuals", Price: 6000.55, Stock: true},
+         {Name: "Watch", Price: 3400.33, Stock: false}
+     ]
+     return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        data.map((item)=>
+                           <tr key={item.Name}>
+                              <td>{item.Name}</td>
+                              <td>{item.Price}</td>
+                              <td>{(item.Stock==true)?"Available":"Out of Stock"}</td>
+                              <td>
+                                <button className="btn btn-danger">
+                                    <span className="bi bi-trash-fill"></span>
+                                </button>
+                              </td>
+                           </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </div>
+     )
+}
+
+Ex: Nested Iterations
+
+data-binding.jsx
+
+export function DataBinding()
+{
+     var menu = [
+          {Category: "Electronics", Products: ["Mobiles", "Televisions"]},
+          {Category: "Footwear", Products: ["Casuals", "Boots"]}
+     ]
+     return(
+        <div className="container-fluid">
+            <h2>Menu</h2>
+            <ol>
+                {
+                    menu.map((item)=>
+                      <li key={item.Category}>
+                         {item.Category}
+                         <ul>
+                            {
+                                item.Products.map((product)=>
+                                 <li key={product}>{product} <button className="btn btn-warning"><span className="bi bi-pen-fill"></span></button> </li>
+                                )
+                            }
+                         </ul>
+                      </li>
+                    )
+                }
+            </ol>
+            <hr />
+            <select>
+                {
+                    menu.map((item)=>
+                      <optgroup label={item.Category}>
+                          {
+                            item.Products.map((product)=>
+                              <option>{product}</option>
+                            )
+                          }
+                      </optgroup>
+                    )
+                }
+            </select>
+        </div>
+     )
+}
+
+Note: React supports only "One-Way-Binding". There no "Two-Way-Binding".

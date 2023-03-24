@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-project</title>
+    
+    <!--link the bootstrap5 icon and bootstrap css here -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+    
+   <!--applying a css style here-->
+    <style>
+               .netflix-back {
+            background-image: url("netflix.jpg");
+            background-size: cover;
+            color:white;
+            height: 768px;
+        }
+        section {
+            background-color: rgba(0,0,0,0.5);
+            height: 768px;
+        }
+        .brand-title {
+            font-size: 35px;
+            color:red;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            text-align: center;
+        }
+        main h1 {
+            font-size: 50px;
+        }
+        main p {
+            font-size: 30px;
+        }
+        .register-box {
+            width: 800px;
+        }
+        .register-box p {
+            font-size: 20px;
+        }
+    </style>
+
+
+     
+    <!--link all the library from node_modules file (series is imp)-->
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+    
+    <script type="text/babel">
+     import {IndexComponent} from "./src/indexComponent";
+      
+   
+        
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<IndexComponent></IndexComponent>);
+   
+    </script>
+    
+    
+
+</head>
+<body>
+    <noscript>Please enable JavaScript on your browser.</noscript>
+    <div id="root"></div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

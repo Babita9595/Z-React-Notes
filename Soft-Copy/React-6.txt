@@ -1,0 +1,99 @@
+...........................................................16 march...........................................
+React Application Components
+- JavaScript Module System is used to build React Application.
+- Module is a set of classes, functions and variables.
+- Every JavaScript file is considered as a Module.
+
+[no need to embedded we make seperate file]
+
+                        HomeComponent.js        => HomeComponent
+
+                export function HomeComponent()
+                {
+                }
+
+- You can import the library and use in any page
+
+            import   { HomeComponent  }  from  "HomeComponent.js"
+
+            root.render(<HomeComponent />);
+
+[NOTE:- in UMD module you can not use the 'import' you have to use the "required" keyword for access the files]
+-----------------------------------------------------------------------------------------------------------------------------
+
+Create a new React Application:(NOW WE USE CORRECT ENVIRNMENT TO BUILT REACT APLLICATION)
+..........................................................................................
+
+-:build a react seperate application:-
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+
+1. Open any location on your PC in command prompt
+
+            E:\>                              //i use E:/ -> cd H.React-JS -> cd React-Three ->
+
+2.  Run the command
+
+            E:\>npx  create-react-app   react-shopping  //it will create a end to end complte react apllication(it will setup library.install compiler a to z app is ready for u)
+                                                        //itwill setup folder for u,internally that create module system for u that is "UMD" 
+3.  Open react-shopping folder  in VS Code              //no need to generate manually anything in this
+
+4.  Go to created folder react-shopping and You can run project
+
+            E:\react-shopping> npm  start
+
+            Server is listening on  :   http://localhost:3000
+                                          http://localhost:5500
+
+
+File System of React Application
+
+1. node_modules        :  It comprises of all library files.(css,js, any library u install that is in this)
+
+2. public                     :  It comprises of all static resources
+                                html, images, documents..text pdf etc
+
+3. src                        :  It comprises of all dynamic resources
+                                css, js, jsx, ts, scss ..
+
+4.  .gitignore                :  It configures the resources not to includes while publishing
+                                  on GIT.
+
+5.  package.json              :  It comprises of project meta data.(information about the all the application means what dependencies are there which versions are there)brief about library
+
+6.  package-lock.json         :  It is used to install and update dependencies.(this this details of package_json )details about library
+
+                                >npm  install ()
+
+7.  readme.md                 :  It is help document for developers(any changes u do in project so can mention here for other developers)
+                                 
+                               
+
+
+                                    React Component
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                                             MY WORK
+
+App start with 'index.html'  then 'Index.js' then this connet to App.js
+
+//npm start run entire project and entire program 
+
+//src = > folder Netflix = >
+file under Netflix folder
+netflix header.js
+netflix index.js
+netflix main.js
+netflix register.js
+
+import that NetflixIndex component into "src folder-->index.js"
+
+use bootstrap on index.js (taki sara component use kar sake )
+
+if project is running use different cmd(command prompt) and select project name "react-three"
+
+npm  install   bootstrap --save 
+npm install bootstrap-icons --save
+
+then import in index.js file
+import "../node_modules/bootstrap/dist/css/bootstrap.css"; //import bootstrape here
+import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"

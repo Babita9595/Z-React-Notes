@@ -1,0 +1,69 @@
+ 
+.......................................................................10 MARCH 2023................................................
+
+Summary
+- What is React?
+- What is difference between a library and framework?
+- What is difference between React and Angular?
+- Why we need React and Angular?
+- Challenges in modern web development
+- SPA
+
+
+
+
+
+                                    Features of React
+1. It is component based.
+    - It is faster in designing complex UI
+    - It enables reusability
+    - It is easy to extend
+    - It is easy to test
+
+2. It uses Virtual DOM
+
+
+Browser Architecture
+- UI            :(ui is browser work space,what u see on browsers page) It describes the browser interface, which includes
+                  title bar, shortcut buttons, addressbar, scroll bar.
+
+- Browser Engine    : It translates your HTML.()
+
+- Rendering Engine    : It presents your markup in browser.(browser rendering engine:- edge = chromium, chrome= v8, safari= webkit ,internet=chakra ,firefox = spidermonkey)
+
+- JavaScript Interpreter : It translated JavaScript - JIT [Just-in-Time](js have compiler but browser has not js compiler it has only interpreter)
+
+- Network                : It tracks the performance of page(how many request are make for a page,how much time it taken to load)
+
+- UI Backend            : It defines the backend API's or extentions for browser.(mobile simulator , json simulator)which help browser to making perfomance more better
+
+- Data Persistance(store )     : It includes storage for browser in form of=
+                            a) Local Storage
+                            b) Cookies
+                            c) Session Storage        
+                            d) Shared Storage
+- Various browser engines & rendering
+        v8, chakra, edgeHTML, webkit, spider monkey, gecko etc..
+
+FAQ.what is role of HTML
+A. to presenting dom
+
+What is DOM?
+- It is a hierarchy of presenting elements.
+- It refers to Document Object Model.
+- It comprises of parent and child nodes.
+- Nodes are converted from Tokens
+- Tokens are from chars
+- Chars are from Bytes
+- Bytes are from markup.
+
+What is Shadow DOM?
+- It is a hierarchy of nodes in a component.(every component has hierarchy which is called shadow dom)component related hierarchy are called shadow dom
+
+What is Virutal DOM?
+- It is a duplicate copy of actual DOM.
+
+
+
+
+

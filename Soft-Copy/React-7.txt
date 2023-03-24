@@ -1,0 +1,138 @@
+React Components
+- A component comprises of
+        a) Presentation
+        b) Styles
+        c) Logic
+- Presentation is done by using HTML
+- Styles are defined by using CSS
+- Logic is defined by using JavaScript | JSX | TypeScript
+- It is a reusable design with functionality.
+- It provides customizable designs.
+- Components are building blocks for application.
+- React component can be
+        a) A function
+        b) A class
+
+                Creating a component using functions
+                ---------------------------------------------------
+- Every function used for creating component must start with Uppercase letter.
+
+            function  Login()
+            {
+            }
+
+- Every component function must return a presentation. It can't be void.
+
+            function  Login()
+            {
+              return (<markup></markup>);
+            }
+
+- Component function can be parameterless or parameterized.
+
+- Component parameters are reffered as properties.
+
+- Properties are used to customize a component.
+
+        function  Login(props)
+        {
+           <input type=props.controlType>
+        }
+
+        Login(props.email);
+        Login(props.text);
+        Login(props.date);
+
+- Component function can't use immutable types.
+
+- It is not recommended to used immutable types in component.
+
+        function Login()
+        {
+            var username;            // not good
+        }
+
+- According to project tradition every component at high level can have 3 files
+
+                .js            [markup and logic]
+                .css        [styles]
+                .spec.js    [testing]
+                .test.js        [testing]
+
+- Component file can be created with 2 types of extentions
+
+                .js        ]        JavaScript
+                .jsx        ]
+
+                .ts        ]        TypeScript
+                .tsx    ]
+
+- A component function in module must be defined with "export"
+
+ (jab jarurt ho tbhi load hoti hai)     export  function Login() { }                import  { Login } from  "Login";
+  (jarurat ho ya na ho by               export  default function Login() { }        import  Login from "Login";
+   default laod hoti hi hai)
+                                (or)
+
+                function Login() { }
+                export  default Login;
+
+                                (or)
+
+                const  Login = () => { }
+
+                                (or)
+
+                const  Login = function() { }
+               
+Ex:
+ 1. Add a new folder
+        "components"
+
+2. Add a folder for component  "login"
+
+3. Add following files
+       
+            "login.jsx"
+
+import "./login.css";
+
+export function Login()
+{
+    return(
+        <div className="container-fluid">
+            <form>
+                <h2>User Login</h2>
+                <dl>
+                    <dt>User Name</dt>
+                    <dd><input type="text" className="form-control"/></dd>
+                    <dt>Password</dt>
+                    <dd><input type="password" className="form-control"/></dd>
+                </dl>
+                <button className="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    )
+}
+
+        login.css
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+form {
+    padding: 20px;
+    border:2px solid gray;
+}
+
+                                Data Binding in Component
+- It is the process of accessing data from source and binding to UI.
+- JavaScript uses lot of DOM methods.
+- React uses data binding expression " {  } "        
+
+            var name = "Admin Login";
+
+            <h2> { name } </h2>

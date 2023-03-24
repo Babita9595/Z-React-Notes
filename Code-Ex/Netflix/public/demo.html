@@ -1,0 +1,182 @@
+
+<!-- this is demo design for my own practice from(index1.html)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo page design</title>
+
+     <!--link the bootstrap5 icon and bootstrap css here -->
+     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+      <!--css is apply here-->
+      <style>
+
+       .headercontent{
+        display: flex;
+        justify-content: space-around;
+        height: 30px;
+       }
+
+       section {
+            background-color: rgba(0,0,0,0.5);
+            height: 768px;
+        }
+          
+
+        .main{
+            height: 500px;
+            position: absolute;
+            margin-top: 10%;
+        }
+
+
+        .bodycontainer{
+            text-align: center;
+            align-items: center;
+           justify-content: center;
+          
+        }
+ 
+        .bodycontainer h1{
+            font-size: 50px;
+        }
+        .bodycontainer p{
+            font-size: 25px;
+        }
+
+
+        .register{
+            position: absolute;
+            display: inline-block;
+            height: 50px;
+            margin-top: 25%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20%;
+        }
+
+        .register p{
+            font-size: 25px;
+        }
+
+        input{
+            height:40px;
+            margin-top: 5px;
+        }
+
+        .demo-back{
+            /* background-color: aqua; */
+            background-image: url("demo-netflix.jpg");
+            background-size: cover;
+            color: white;
+            height:768px;
+        }
+      </style>
+
+
+
+
+      <!--link all the library from node_modules file (series is imp)-->
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+  
+  
+     <!--Component is written here-->
+    <script type="text/jsx">     
+
+
+function HeaderComponent(){
+    return(
+        <header className=" p-3 d-flex headercontent  ">
+            <div>
+               <button className="btn btn-primary">Welcome</button>
+            </div>
+
+                <div className="dropdown me-3">
+                    <button className="btn btn-success dropdown-toggle">
+                        <span className="bi bi-globe"></span>
+                        Language
+                    </button>
+                </div>
+                <div>
+                    <button className="btn btn-danger">
+                        Signin
+                    </button>
+                </div>
+        </header>    
+    )
+} 
+
+function BodyComponent(){
+    return(
+        <div className="container-fluid  main">
+            <div className="bodycontainer">
+                <h1 >
+                    Unlimited movies, TV shows and more
+                </h1>
+
+                <p>
+                    Watch anywhere. Cancel anytime.
+                </p>
+            </div>
+            
+        </div>
+    )
+}
+
+
+function RegisComponent(){
+    return(
+        <div className="register">
+           <p>Ready to watch? Enter your email to create or restart your membership.</p>
+           <div >
+            <input className="form-control" type="email" placeholder="enter your mail"/>
+            <button className="btn btn-danger">Get Started
+                <span className="bi bi-arrow-right-"></span>
+            </button>
+         
+           </div>
+
+        </div>
+    )
+}
+
+
+function Index(){
+    return(
+        <div className=" container-fluid demo-back">
+        
+            <section>
+                 <HeaderComponent/>
+                 <BodyComponent/>
+                 <RegisComponent/>
+            </section>
+        </div>
+    )
+   
+}
+     
+
+
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<Index/>);
+    </script>
+</head>
+
+
+
+<body>
+
+    <noscript>Please enable JavaScript on your browser.</noscript>
+    <div id="root"></div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

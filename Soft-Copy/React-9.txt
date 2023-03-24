@@ -1,0 +1,219 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,23-march,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+Data Binding in React
+- One Way Binding
+    Binding Primitive Types : number, string, boolean, null, undefined..
+    Binding Non Primitive Types : Array, Object, JSON
+
+Note: Don't use variables for storing data in component.
+        Variables are immutable.(their structure can not change dynamically)
+
+FAQ:- what is recomnded to storing data in react?
+
+                              Ans is ->      State in React   (very imp concept)
+                                             ---------------
+
+- Web Applications use "http | https" as protocols.
+- Http is a state less protocol.(this is problem for every webpage)
+- It can't remember information between requests.
+                --------------
+              / |  p-1 load   |
+           /    
+         /      |             |         [page-1]
+ memory
+allocated       |             |         [page-2]
+                ---------------
+                   server
+
+[when page-1 is loaded to server , the server is allocated memory for page-1 ,[ after perfoming the action of page-1] (page-2 will load) ]
+[when the page-2 is load into server,  the allocetd memory for page-1 is automacally deleted means data is erase and then page-2 is allocate new memory but page-2 dont know what hapen ]
+[but server lost all data of page-1 ,  only page-2 have  example EMAIL - login page is page-1, main page is page-2 ]
+[it is good for memory management]
+
+- State less nature of application is good for server, as it manages memory.(stateless nature means your application not remember previous information)
+- It is not good for contineous operations.
+- You can handle this issue by implementing various state management techniques
+        a) Application State
+        b) Session State
+        c) Cookies
+        d) QueryString etc..
+[by this state management technique we can make our application remeber the information between request]
+- React component can manage state for application
+- State was available in React upto 17 version only with Class Components.
+
+FQA:- diff between function component and class component???(dev give only state full and stateless)
+
+- React 18+ version introduced state for function components.
+- React function component can handle state by using a Hook [method] called "useState()".
+- useState is not for class component, it is only for function component.
+- State is mutable.(this is advantsge of state ,it can change acc to situation)
+
+Syntax:
+    import   { useState }  from  "react";    //useState is a function u have to import from react , it initial state
+
+   {use array destruncturing, use const}
+
+    const [getter, setter] = useState();            => any type   [getter= read , setter= store data] {here useState is initiatilize new memory every time} 
+    const [name]            = useState("John");    => string 
+            |
+           read only
+
+    const [products]        = useState([]);        => Array
+    const [product]        = useState({});        => Object
+                                      (0);        => number
+Ex:
+data-binding.jsx
+
+import  { useState } from "react";
+
+export function DataBinding()
+{
+    const [userName]   = useState("John");
+    const [categories] = useState(["Electronics", "Footwear", "Fashion"]);
+    const [products] = useState([{Name:"TV", Price:45000.33}, {Name:"Nike Casuals", Price:3200.44}]);
+   
+    return(
+      <div className="container-fluid">
+        <h2>State in React Function Component</h2>
+        <p>Hello ! {userName}</p>
+        <h2>Categories</h2>
+        <ol>
+          {
+            categories.map((category)=>
+             <li key={category}> {category} </li>
+            )
+          }
+        </ol>
+        <h2>Products Table</h2>
+        <table className="table table-hover">
+           <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+           </thead>
+           <tbody>
+              {
+                products.map((product)=>
+                 <tr key={product.Name}>
+                   <td>{product.Name}</td>
+                   <td>{product.Price}</td>
+                 </tr>
+                )
+              }
+           </tbody>
+        </table>
+      </div>
+    )
+}
+
+                                    Two Way Binding
+- It is the process of accessign data from source and binding to UI and identifying the changes in UI and updating back to source.
+
+- React is not supported with default two way binding.
+-react not do it internally
+- You have to manually manage by using Events.
+
+Syntax:
+        const [name, setname] = useState("john");
+
+        <input type="text"  value={name}  onChange={handleNameChange}>
+
+        function handleNameChange(event) {
+            setname(event.target.value);
+        }
+
+        Hello ! {name}
+
+Note: Two way binding uses only "onChange" as default event that identified the changes in UI.
+
+Ex: Two Way Binding
+
+
+import  { useState } from "react";
+
+export function DataBinding()
+{
+    const [product, setProduct] = useState({Name:'', Price:0, City: '', Stock:false});
+
+    function handleNameChange(e){
+       setProduct({
+           Name: e.target.value,
+           Price: product.Price,
+           City: product.City,
+           Stock: product.Stock
+       })
+    }
+    function handlePriceChange(e){
+      setProduct({
+        Name: product.Name,
+        Price: e.target.value,
+        City: product.City,
+        Stock: product.Stock
+    })
+    }
+    function handleCityChange(e){
+      setProduct({
+        Name: product.Name,
+        Price: product.Price,
+        City: e.target.value,
+        Stock: product.Stock
+    })
+    }
+    function handleStockChange(e){
+      setProduct({
+        Name: product.Name,
+        Price: product.Price,
+        City: product.City,
+        Stock: e.target.checked
+    })
+    }
+
+
+    return(
+      <div className="container-fluid">
+         <div className="row">
+            <nav className="col-3">
+                <h2>Register Product</h2>
+                <dl>
+                  <dt>Name</dt>
+                  <dd><input type="text" onChange={handleNameChange} className="form-control"/></dd>
+                  <dt>Price</dt>
+                  <dd><input type="number" onChange={handlePriceChange} className="form-control"/></dd>
+                  <dt>City</dt>
+                  <dd>
+                    <select className="form-select" onChange={handleCityChange}>
+                       <option>Delhi</option>
+                       <option>Hyd</option>
+                    </select>
+                  </dd>
+                  <dt>Stock</dt>
+                  <dd className="form-switch">
+                    <input type="checkbox" onChange={handleStockChange} className="form-check-input"/> Available
+                  </dd>
+                </dl>
+            </nav>
+            <main className="col-9">
+              <h2>Details</h2>
+              <dl>
+                <dt>Name</dt>
+                <dd>{product.Name}</dd>
+                <dt>Price</dt>
+                <dd>{product.Price}</dd>
+                <dt>City</dt>
+                <dd>{product.City}</dd>
+                <dt>Stock</dt>
+                <dd>{(product.Stock==true)?"Available":"Out of Stock"}</dd>
+              </dl>
+            </main>
+         </div>
+      </div>
+    )
+}
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+in java script
+
+var username = "john"
+<p></p>

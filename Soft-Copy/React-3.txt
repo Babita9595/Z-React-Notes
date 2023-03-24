@@ -1,0 +1,190 @@
+   .........................................................................13 march...........................................................	
+NEW MATERIAL
+React Features and Setup
+
+Features of React JS
+1. It is component based()
+2. It uses Virtual DOM
+        a) DOM
+        b) Shadow DOM
+        c) Virtual DOM
+3. It is faster.
+4. It is modular
+        - It uses only the library that is required for application.
+        - It is not legacy.(these days all technology are modular) 
+        - Application specific library
+        - Application light weight(not load all library just use small interactive part only  that we need bcz of modular) -opposite of modular is legecy means complete library is used to handle small interction
+        - It uses less memory
+5. It uses built-in Async methods [Implicitly Asynchronous] means it has lot of things internally asynchronous , this improve the perfomance of application
+asynchronous:- example of whatsapp and fb (loading- msg , image , video  light weight load first)
+
+6. You can easily plugin any 3rd party
+
+
+Issues with react(why dev are not satisfy all time by using react??)
+1. React is not developed for what you are using.(lot of gaps but we are using them )ex- brand shoes not for casual , 
+
+2. Lot of GAP's.(developers.facebook community   search in google) react n angular are not invention they are discovery by devloper this are already in market we just discover it 
+[future trending language go google it is offiliate by google]
+
+                           AS-IS                   TO-BE                    GAP
+                         -------------------------------------------------------
+                     what your                  what client               java 5%
+                  technology is                      want                  .NET 10%
+                   capable of                                               PHP 2%
+
+
+3. Fill the GAP by using 3rd party library(dev take help library and plugging)
+4. Lot of 3rd party libraries are required
+5. Pace of development and poor documentation.(2014 to 2023 18 versions) any documentation is not complete for developer to take help
+ 
+
+Q- can i built application by react and anguler combination == you can built bcz react can plug with  any framework
+
+
+                            Setup Environment for React
+                          --------------------------------
+
+1. Download and Install "NodeJS" on your PC
+               
+                NodeJS version 18x
+                NPM       version  8x
+
+   -NPM is package manager.
+   -Package Manager is a tool used for installing, updating and removing library.
+            [ NPM, Yarn, Bower, NuGet ...]
+
+            https://nodejs.org/en/
+
+        C:\> npm   -v
+        C:\> node  -v
+
+2. Download and Install  "Visual Studio Code" editor
+
+    https://code.visualstudio.com/
+
+
+3. Open VS Code and Install extention
+            "Live Server"
+
+
+
+Using React in existing web application:
+
+1. Create a new folder for  Web Application
+
+                D:\web-app
+
+2. Open folder in Visual Studio code
+
+3.  Open Terminal
+
+            > npm init  -y
+            [ It generates package.json ]
+
+4. Add folders
+            - public            : It is for static resources , HTML, Images, documents
+            - src                : It is for dynamic resources, css, scss, ts, js etc..
+
+5. Add startup page
+
+          src->  index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Welcome to React - 18</h1>
+    <p>This page is not using react.</p>
+    <p>React is in Home Page</p>
+    <a href="public/home.html">Home</a>
+</body>
+</html>
+
+       public-->home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <noscript>Please enable javascript on your browser.</noscript>
+    <h1></h1>
+</body>
+</html>
+
+- You can use react library from CDN (no need to download library u go to server copy the link and use that on file paste),
+- react in HTML page requires 3 libraries
+           
+            a) react                 : It is the core library for React.
+            b) react-dom            : It is the library to handle virtual DOM
+            c) babel                : It is JavaScript compiler used by react.
+
+  reactjs.org => docs => CDN Links => Development( copy react js link development link)
+                                
+                                      -----series is compalsory-------
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+   https://babeljs.io/
+
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+Ex: Upto React 17
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel"> //if we not this then throw error(tell browser we r using babel compiler)
+          ReactDOM.render("Hello ! React JS", document.querySelector("h1"));
+    </script>
+
+</head>
+<body>
+    <noscript>Please enable javascript on your browser.</noscript>
+    <h1></h1>
+</body>
+</html>
+
+Ex: React 18
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+          const root = ReactDOM.createRoot(document.getElementById("root"));
+          root.render("Hello ! Welcome to React 18");
+    </script>
+</head>
+<body>
+    <noscript>Please enable javascript on your browser.</noscript>
+    <div id="root"></div>
+</body>
+</html>
+

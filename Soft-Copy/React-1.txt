@@ -1,0 +1,98 @@
+- 
+<------------------------------------------------------------(9 MARCH 2023)----------------------------------  
+HTML, JavaScript 
+- our class is running on  React JS 18x(we are discuss this version as well as 17 also)
+- React upto 17 are different 
+TOPIC WE LEARN IN REACT IS--
+- Components (we learn how to use), Hooks
+- API(interactive with api)
+- State Management
+- Redux(this is for state management)
+- Material UI (this is for design good)
+- React Native(developing mobile application)
+- End to End Application(i give to end to end application)
+        MERN Stack
+      M  MongoDB            Database
+      E  Express            Middleware
+      R  React                Front End
+      N  Node                Server Side    
+
+1. What is React ?
+A. It is a JavaScript library used to build UI.
+ex
+
+anybody who want to learn coding developer have about these three things
+
+    language                                           library                                          framework
+(use to cmmunicate with                  (it contains predefine functions)                        (it contains lots of predefine libraries)
+     device)                              adv = we can implement and customize                   u can built applic and control flow of applic
+                                                  according to requirements                           
+ language contains:-                                                                                 
+ 1) statements                             [library bult with language]                      to build a complete app need support of framework
+ 2) functions                                  drawback - can not control   
+ 3) operators                                              apllicat flow
+
+ by use this we can communicate            solution - framework(angular,)
+  with device,
+drawback - lang become slow,               UI = good for build ui                                
+heavy to hndle the application -
+ and cant control flow of applic 
+ 
+
+ for senior dev = must have knowledge  react and angular both required
+ for fresher = one of them is ok
+
+Q2. What is difference between React and Angular?
+A. React is a library. == (if u have handle lots of thing in backed use react in frontend )
+  --------------------
+If your project is about build application with lot of server side frameworks and you want just your UI be more effects then "React" is good
+ (these uses lots of framework in backend , only UI must be effective then use react) 
+     
+                   Example :-  Netflix, Amazon, FaceBook, Instagram   =>they are use  React as user interactive in frontend 
+
+B. Angular is a framework.== (it is large mor than library) == (if u have handle lots of thing in clientside use angular in frontend)
+--------------------------
+If your project is about building app with minimum use of frameworks in backend and maximum framework is expected to handle client side then better "Angular".(want to control application in front end then go eith angular)
+         
+                   Example:-    OS for Window or Mobile - Angular(front-end is handle by), PWA, Photoshop online - also use angular
+
+
+
+Q3.  Is there any difference between React and React JS?
+A.  No Difference
+
+4. Is there any difference between Angular and Angular JS?
+A. Yes
+ANGULAR => new Version
+ANGULAR JS => old version
+
+5. Why we need Angular or React like library and framework to build UI as we already have jQuery library, jqueryUI and JavaScript?
+A.     bcz now these are in trend(same as ans 6)
+
+
+6. What are the challenges in modern web development?
+   1) - Unified UX(user experience)=> example of youtube( only youtube work in desktop but now everyone use in mobile for that need less bandwidth
+                                                           and need to compress to fit on mobile but after this same several features are not there)
+        [means need a same feature and experience from desktop to mobile called unified Ux means software using same experience with any device]
+
+   2) - Fluid UX =>  (it means every content is in same page we can access by scroll down like google image search so every application want this feature this is called fluid ux)
+                                 
+
+   3)   - Loosely coupled and extensible (develop a app if we use new features to them it will not create any disturbanse to user )
+                                                     without asking to reinstall application we should add new features, this kind of 
+                                                          things called loosely coupled 
+7. What is solution?
+A. Better build SPA [Single Page Applications]   - Twitter(wourld first single page aplication)
+
+8. How to build SPA? Can we use JS, JQ?
+A. Yes.
+
+but problem is that using js:-
+    - JS DOM manupulation
+    - Logic, Coding funcitons
+    - Ajax(explicit ajax 90% required)
+
+9. What is solution?
+A. React, Angular, Vue, Knockout, Ember, BackBone etc..
+
+these are used for build single page user interface there no need to use explicitly ajax here internaly evrything is ajax means asynchrounous

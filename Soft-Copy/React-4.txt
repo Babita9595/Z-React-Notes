@@ -1,0 +1,139 @@
+	
+
+React Offline library
+Features of React
+Issues with React
+Setup Environment for React
+    - Node JS [NPM]
+    - Visual Studio Code
+    - Created a web application
+    - Use react in existing web application with CDN links.
+-------------------------------------------------------------------------------------today-----------------------------------------------------
+- How to use react in existing web application using offline library ?
+    a) React
+    b) React DOM
+    c) Babel
+
+1. Open Terminal and Install following libraries
+
+        >npm install  react    --save
+        >npm install  react-dom  --save
+        >npm install  @babel/standalone
+
+[Note:-  --save means libraries are save in node_module folder]
+
+2. Any library installed using NPM package manager copies its files into a folder
+        "node_modules"
+
+Note: Modules of JavaScript uses various module systems
+            a) CJS  Common JS
+            b) UMD (Universal Module Distribution)
+            c) AMD  (Asynchronous Module Distribution)
+            d) ES [ECMAScript2022]
+
+3. Link the files for React and React DOM from UMD system
+
+                umd / react.development.js
+                umd / react-dom.development.js
+                @babel/ babel.js
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+    <script type="text/babel"> //it tells that we used babel compiler 
+         const root = ReactDOM.createRoot(document.getElementById("root"));
+         root.render("Hello ! React 18");
+    </script>
+</head>
+<body>
+    <noscript>Please enable javascript on your browser.</noscript>
+    <div id="root"></div>
+</body>
+</html>
+
+Note: Babel is a compiler used for JavaScript and JSX.
+        JSX is JavaScript Extention Library
+
+        JavaScript DOM methods can handle browser DOM not  Virtual DOM.
+        JSX methods can handle virtual DOM not browser DOM.
+
+JSX rules:
+        - JSX will not allow individual elements in UI.
+        - JSX requires a container or a fragment to handle elements.
+
+                <h1>Welcome</h1>        // invalid
+                <p> React 18 </p>
+
+                <div>
+                    <h1> Welcome </h1>
+                    <p> React 18 </p>
+                </div>
+
+
+        - JSX don't have support for void elements.
+           
+                <img> </img>        or    <img />
+                <input type="text"> </input>
+                <input type="text" />
+
+Ex:
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+    <script type="text/jsx">
+         function Login(){
+            return(
+                <div>
+                    <h2>User Login</h2>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text"></input></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password"/></dd>
+                    </dl>
+                    <button>Login</button>
+                </div>
+            )
+         }
+         function MainComponent(){
+            return(
+                <div>
+                    <h2>Netflix - Home </h2>
+                    <Login />
+                    <hr />
+                    <Login/>
+                </div>
+            )
+         }
+         const root = ReactDOM.createRoot(document.getElementById("root"));
+         root.render(<MainComponent/>);
+    </script>
+</head>
+<body>
+    <noscript>Please enable javascript on your browser.</noscript>
+    <div id="root"></div>
+
+</body>
+</html>
+
+
+How to build a new react application
+
+
+
